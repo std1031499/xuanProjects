@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.xuan.cs.entities.Skill" table="tb_SKILL">
+		
+		<id name="skill_Id" type="java.lang.Integer">
+			<column name="SKILL_ID"/>
+			<generator class="native"/>
+		</id>
+		
+		<property name="t_Name" type="java.lang.String">
+			<column name="T_NAME"></column>
+		</property>
+		
+		<property name="t_TimeMin" type="java.lang.String">
+			<column name="T_TIMEMIN"></column>
+		</property>
+		
+		<property name="t_TimeMax" type="java.lang.String">
+			<column name="T_TIMEMAX"></column>
+		</property>
+		
+		<property name="t_MainProblem" type="java.lang.String">
+			<column name="T_MAINPROBLEM"></column>
+		</property>
+		
+		<property name="t_SkillKey" type="java.lang.String">
+			<column name="T_SKILLKEY"></column>
+		</property>
+		
+		<property name="t_Aim" type="java.lang.String">
+			<column name="T_AIM"></column>
+		</property>
+		
+		<property name="t_Key1" type="java.lang.String">
+			<column name="T_KEY1"></column>	
+		</property>
+		
+		<property name="t_Key2" type="java.lang.String">
+			<column name="T_KEY2"></column>	
+		</property>
+		
+		<property name="t_Key3" type="java.lang.String">
+			<column name="T_KEY3"></column>	
+		</property>
+		
+		<property name="t_Key4" type="java.lang.String">
+			<column name="T_KEY4"></column>	
+		</property>
+		
+		<property name="t_Key5" type="java.lang.String">
+			<column name="T_KEY5"></column>	
+		</property>
+		
+		<property name="t_MoneySet" type="java.lang.String">
+			<column name="T_MONEYSET"></column>	
+		</property>
+		
+		<property name="t_Cooperate" type="java.lang.String">
+			<column name="T_COOPERATE"></column>	
+		</property>
+		
+		<property name="t_Unit" type="java.lang.String">
+			<column name="T_UNIT"></column>	
+		</property>
+		
+		<property name="t_Type" type="java.lang.String">
+			<column name="T_TYPE"></column>	
+		</property>
+		
+		<!-- 映射单向 n-1 的关联关系  LIST-->
+		<many-to-one name="listFirst" lazy="false" fetch="join" class="com.xuan.cs.entities.ListFirst"   >
+			<column name="LISTFIRST_ID"></column>
+		</many-to-one>
+		
+		<many-to-one name="listSecond" lazy="false" fetch="join" class="com.xuan.cs.entities.ListSecond"  >
+			<column name="LISTSECOND_ID"></column>
+		</many-to-one>
+		
+		<many-to-one name="listThird" lazy="false" fetch="join" class="com.xuan.cs.entities.ListThird"  >
+			<column name="LISTTHIRD_ID"></column>
+		</many-to-one>
+		
+		
+		<property name="t_Territory" type="java.lang.String">
+			<column name="T_TERRITORY"></column>	
+		</property>
+				
+		<!-- 映射单向 n-1 的关联关系  TRADE-->
+		<many-to-one name="tradeFirst" lazy="false" fetch="join" class="com.xuan.cs.entities.TradeFirst"  >
+			<column name="TRADEFIRST_ID"></column>
+		</many-to-one>
+		
+		<many-to-one name="tradeSecond" lazy="false" fetch="join" class="com.xuan.cs.entities.TradeSecond"  >
+			<column name="TRADESECOND_ID"></column>
+		</many-to-one>
+		
+		<many-to-one name="tradeThird" lazy="false" fetch="join" class="com.xuan.cs.entities.TradeThird"  >
+			<column name="TRADETHIRD_ID"></column>
+		</many-to-one>
+		
+		
+		
+		<property name="user_IdS" type="java.lang.Integer">
+			<column name="USER_IDS"></column>
+		</property>
+		
+		<property name="auditState" type="java.lang.String">
+			<column name="AUDITSTATE"></column>
+		</property>
+		
+		<property name="auditInfomation" type="java.lang.String">
+			<column name="AUDITINFOMATION"></column>
+		</property>
+		
+		
+	</class>
+</hibernate-mapping>

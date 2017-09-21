@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<!-- Dao -->
+	<bean id="userDao" class="com.xuan.cs.dao.UserDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="basicDao" class="com.xuan.cs.dao.BasicDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="managementDao" class="com.xuan.cs.dao.ManagementDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	
+	<bean id="areaDao" class="com.xuan.cs.dao.AreaDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="skillDao" class="com.xuan.cs.dao.SkillDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="listFirstDao" class="com.xuan.cs.dao.ListFirstDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="listSecondDao" class="com.xuan.cs.dao.ListSecondDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="listThirdDao" class="com.xuan.cs.dao.ListThirdDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tradeFirstDao" class="com.xuan.cs.dao.TradeFirstDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tradeSecondDao" class="com.xuan.cs.dao.TradeSecondDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="tradeThirdDao" class="com.xuan.cs.dao.TradeThirdDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="showDao" class="com.xuan.cs.dao.ShowDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+	
+	<!-- Service -->
+	<bean id="userService" class="com.xuan.cs.service.UserService">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	
+	<bean id="basicService" class="com.xuan.cs.service.BasicService">
+		<property name="basicDao" ref="basicDao"></property>
+	</bean>
+	
+	<bean id="managementService" class="com.xuan.cs.service.ManagementService">
+		<property name="managementDao" ref="managementDao"></property>
+	</bean>
+	
+	<bean id="areaService" class="com.xuan.cs.service.AreaService">
+		<property name="areaDao" ref="areaDao"></property>
+	</bean>
+	
+	<bean id="skillService" class="com.xuan.cs.service.SkillService">
+		<property name="skillDao" ref="skillDao"></property>
+	</bean>
+	
+	<bean id="listFirstService" class="com.xuan.cs.service.ListFirstService">
+		<property name="listFirstDao" ref="listFirstDao"></property>
+	</bean>
+	
+	<bean id="listSecondServcie" class="com.xuan.cs.service.ListSecondService">
+		<property name="listSecondDao" ref="listSecondDao"></property>
+	</bean>
+	
+	<bean id="listThirdService" class="com.xuan.cs.service.ListThirdService">
+		<property name="listThirdDao" ref="listThirdDao"></property>
+	</bean>
+	
+	<bean id="tradeFirstService" class="com.xuan.cs.service.TradeFirstService">
+		<property name="tradeFirstDao" ref="tradeFirstDao"></property>
+	</bean>
+	
+	<bean id="tradeSecondService" class="com.xuan.cs.service.TradeSecondService">
+		<property name="tradeSecondDao" ref="tradeSecondDao"></property>
+	</bean>
+	
+	<bean id="tradeThirdService" class="com.xuan.cs.service.TradeThirdService">
+		<property name="tradeThirdDao" ref="tradeThirdDao"></property>
+	</bean>
+	
+	<bean id="showService" class="com.xuan.cs.service.ShowService">
+		<property name="showDao" ref="showDao"></property>
+	</bean>
+	
+	
+	
+	<!-- Action -->
+	<bean id="userAction" class="com.xuan.cs.actions.UserAction" scope="prototype">
+		<property name="userService" ref="userService"></property>
+	</bean>
+	
+	<bean id="basicAction" class="com.xuan.cs.actions.BasicAction" scope="prototype">
+		<property name="basicService" ref="basicService"></property>
+		<property name="managementService" ref="managementService"></property>
+		<property name="areaService" ref="areaService"></property>
+	</bean>
+	
+	<bean id="skillAction" class="com.xuan.cs.actions.SkillAction" scope="prototype">
+		<property name="skillService" ref="skillService"></property>
+		<property name="listFirstService" ref="listFirstService"></property>
+		<property name="listSecondService" ref="listSecondServcie"></property>
+		<property name="listThirdService" ref="listThirdService"></property>
+		<property name="tradeFirstService" ref="tradeFirstService"></property>
+		<property name="tradeSecondService" ref="tradeSecondService"></property>
+		<property name="tradeThirdService" ref="tradeThirdService"></property>
+	</bean>
+	
+	<bean id="showAction" class="com.xuan.cs.actions.ShowAction" scope="prototype">
+		<property name="showService" ref="showService"></property>
+		<property name="listFirstService" ref="listFirstService"></property>
+		<property name="listSecondService" ref="listSecondServcie"></property>
+		<property name="listThirdService" ref="listThirdService"></property>
+		<property name="tradeFirstService" ref="tradeFirstService"></property>
+		<property name="tradeSecondService" ref="tradeSecondService"></property>
+		<property name="tradeThirdService" ref="tradeThirdService"></property>
+	</bean>
+	
+
+	
+	
+</beans>

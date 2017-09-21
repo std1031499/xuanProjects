@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	
+	<class name="com.xuan.cs.entities.Management" table="tb_MANAGEMENT">
+      
+        <id name="management_Id" type="java.lang.Integer">
+            <column name="MANAGEMENT_ID" />
+            <generator class="native" />
+        </id>
+      
+        <property name="managementName" type="java.lang.String">
+            <column name="MANAGEMENT_NAME" />
+        </property>
+        
+    </class>
+
+</hibernate-mapping>

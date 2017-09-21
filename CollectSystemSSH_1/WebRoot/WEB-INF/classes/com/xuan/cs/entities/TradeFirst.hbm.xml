@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.xuan.cs.entities.TradeFirst" table="TB_TRADEFIRST">
+		<id name="tradeFirstId" type="java.lang.String">
+			<column name="TRADEFIRST_ID"></column>
+			<generator class="uuid"/>
+		</id>
+		
+		<property name="tradeFirstName"  type="java.lang.String">
+			<column name="TRADEFIRST_NAME"></column>
+		</property>
+	</class>
+</hibernate-mapping>

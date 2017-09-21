@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.xuan.cs.entities.User" table="tb_USER">
+        
+        <id name="user_Id" type="java.lang.Integer">
+            <column name="USER_ID" />
+            <generator class="native" />
+        </id>
+         
+         <property name="c_Username" type="java.lang.String" not-null="true">
+         	<column name="C_USERNAME"></column>
+         </property>
+                
+        <property name="c_Password" type="java.lang.String">
+            <column name="C_PASSWORD" />
+        </property>
+        
+        <property name="c_Level" type="java.lang.String">
+            <column name="C_LEVEL" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

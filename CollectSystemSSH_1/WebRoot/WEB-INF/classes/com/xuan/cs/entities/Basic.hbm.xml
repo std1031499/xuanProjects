@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	
+	<class name="com.xuan.cs.entities.Basic" table="tb_BASIC">
+		
+		<id name="basic_Id" type="java.lang.Integer">
+            <column name="BASIC_ID" />
+            <generator class="native" />
+        </id>
+        
+        <property name="c_Name" type="java.lang.String">
+            <column name="C_NAME" />
+        </property>
+        
+        <!-- 映射单向 n-1 的关联关系 -->
+        <many-to-one name="management" lazy="false" fetch="join" class="com.xuan.cs.entities.Management">
+            <column name="MANAGEMENT_ID" />
+        </many-to-one>
+        
+        <many-to-one name="area" lazy="false" fetch="join" class="com.xuan.cs.entities.Area">
+            <column name="AREA_ID" />
+        </many-to-one>
+        
+        
+        <property name="user_IdB" type="java.lang.Integer">
+        	<column name="USER_IDB"></column>
+        </property>
+        
+        <property name="c_AddressT" type="java.lang.String">
+            <column name="C_ADDRESST" />
+        </property>
+        
+        <property name="c_AddressW" type="java.lang.String">
+            <column name="C_ADDRESSW" />
+        </property>
+        
+        <property name="c_AddressE" type="java.lang.String">
+            <column name="C_ADDRESSE" />
+        </property>
+        
+        <property name="c_Person" type="java.lang.String">
+            <column name="C_PERSON" />
+        </property>
+        
+        <property name="c_Code" type="java.lang.String">
+            <column name="C_CODE" />
+        </property>
+        
+        <property name="c_contact" type="java.lang.String">
+            <column name="C_CONTACT" />
+        </property>
+        
+        <property name="c_Phone" type="java.lang.String">
+            <column name="C_PHONE" />
+        </property>
+        
+        <property name="c_Telephone" type="java.lang.String">
+            <column name="C_TELEPHONE" />
+        </property>
+        
+        <property name="c_Mail" type="java.lang.String">
+            <column name="C_MAIL" />
+        </property>
+        
+        <property name="c_Property" type="java.lang.String">
+            <column name="C_PROPERTY" />
+        </property>
+        
+        <property name="c_Introduction" type="java.lang.String" length="Max">
+            <column name="C_INTRODUCTION" />
+        </property>
+        
+	</class>
+</hibernate-mapping>
