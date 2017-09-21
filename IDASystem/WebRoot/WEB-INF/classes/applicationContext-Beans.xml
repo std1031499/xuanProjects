@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<!-- Dao -->
+	<bean id="manageDao" class="com.xuan.ida.dao.ManageDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="dataInputDao" class="com.xuan.ida.dao.DataInputDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="dataOutputDao" class="com.xuan.ida.dao.DataOutputDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+	
+	<!-- Service -->
+	<bean id="manageService" class="com.xuan.ida.service.ManageService">
+		<property name="manageDao" ref="manageDao"></property>
+	</bean>
+	
+	<bean id="dataInputService" class="com.xuan.ida.service.DataInputService">
+		<property name="dataInputDao" ref="dataInputDao"></property>
+	</bean>
+	
+	<bean id="dataOutputService" class="com.xuan.ida.service.DataOutputService">
+		<property name="dataOutputDao" ref="dataOutputDao"></property>
+	</bean>
+	
+	
+	
+	<!-- Action -->
+	<bean id="manageAction" class="com.xuan.ida.action.ManageAction">
+		<property name="manageService" ref="manageService"></property>
+	</bean>
+	
+	<bean id="dataInputAction" class="com.xuan.ida.action.DataInputAction">
+		<property name="dataInputService" ref="dataInputService"></property>
+	</bean>
+	
+	<bean id="dataOutputAction" class="com.xuan.ida.action.DataOutputAction">
+		<property name="dataOutputService" ref="dataOutputService"></property>
+	</bean>
+	
+
+	
+	
+</beans>
