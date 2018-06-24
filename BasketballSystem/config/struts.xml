@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" /> 
+	<package name="default" namespace="/" extends="struts-default">
+	
+		<!-- 定义新的拦截器栈，配置 prepare 拦截器栈的 alwaysInvokePrepare 参数值为 false -->
+		<interceptors>
+			<interceptor-stack name="sshStack">
+				<interceptor-ref name="paramsPrepareParamsStack">
+					<param name="prepare.alwaysInvokePrepare">false</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- 使用新的拦截器栈 -->
+		<default-interceptor-ref name="sshStack"></default-interceptor-ref>
+		
+		<action name="main-*" class="mainAction" method="{1}">
+ 			<result name="leftSuccess">/WEB-INF/leftpage/main-leftSide.jsp</result>  
+			<result name="topSuccess">/WEB-INF/toppage/topSide.jsp</result>
+			<result name="homeSuccess">/WEB-INF/main/main-homePage.jsp</result>
+			
+			<result type="stream" name="ajax-success">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>							
+			</result>			
+						
+		</action>
+				
+		 <action name="player-*" class="playerAction" method="{1}">
+		 	<result name="basicInfo">/WEB-INF/bsPlayersInfo/player-basicInfoAdd.jsp</result>
+		 	<result name="success" type="redirect">player-basicInfoAdd</result>
+		 	<result name="basicInfoEdit">/WEB-INF/bsPlayersInfo/player-basicInfoEdit.jsp</result>
+		 	<result name="editSave" type="redirect">player-basicInfoAdd</result>
+		 	
+		 	<result name="currentPosition">/WEB-INF/bsPlayersInfo/player-currentPosition.jsp</result>
+		 	<result name="showEvaluateInfo">/WEB-INF/bsPlayersInfo/player-showEvaluateInfo.jsp</result>
+		 	<result name="skillInfoShow">/WEB-INF/bsPlayersInfo/player-skillInfoShow.jsp</result>
+		 	<result name="playerScore">/WEB-INF/bsPlayersInfo/player-playerScore.jsp</result>
+		 	
+		 	
+		 	<result type="stream" name="ajax-success">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>							
+			</result>		
+		 </action>
+			
+		 <action name="organizer-*" class="organizerAction" method="{1}">
+		 	<result name="asscessorInfoAdd">/WEB-INF/organizerInfo/organizer-organizerInfoAdd.jsp</result>
+		 	<result name="success" type="redirect">organizer-organizerInfoAdd</result>
+		 	<result name="asscessorInfoEdit">/WEB-INF/organizerInfo/organizer-organizerInfoEdit.jsp</result>
+		 	<result name="editSave" type="redirect">organizer-organizerInfoAdd</result>
+		 	
+		 	
+		 </action>	
+		 
+		 <action name="match-*" class="matchAction" method="{1}">
+		 	<result name="matchAdd">/WEB-INF/matchInfo/match-matchAdd.jsp</result>	
+		 	<result name="matchAddSave" type="redirect">match-matchManageIng</result>	
+		 	<result name="matchManageIng">/WEB-INF/matchInfo/match-matchManageIng.jsp</result>
+		 	<result name="matchManageDone">/WEB-INF/matchInfo/match-matchManageDone.jsp</result>
+		 	<result name="matchShow">/WEB-INF/matchInfo/match-matchShow.jsp</result>
+		 	<result name="matchSignUp">/WEB-INF/matchInfo/match-matchSignUp.jsp</result>
+		 	<result name="showSignUp">/WEB-INF/matchInfo/match-showSignUp.jsp</result>
+		 	<result name="playerAudit">/WEB-INF/matchInfo/match-playerAudit.jsp</result>
+<!-- 		 	<result name="selectAudit">/WEB-INF/matchInfo/match-playerAudit.jsp</result> -->
+		 	
+		 	
+		 	<result type="stream" name="ajax-success">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>							
+			</result>	
+		 </action>
+		 
+		 <action name="matchInfo-*" class="matchInfoAction" method="{1}">
+		 	<result name="playerMatching">/WEB-INF/matchInfoPlayer/matchInfo-playerMatching.jsp</result>	
+			<result name="imageUpload">/WEB-INF/matchInfoPlayer/matchInfo-imageUpload.jsp</result>
+			<result name="endMatchSuccess" type="redirect">matchInfo-playerMatching</result>
+			<result name="imageShow">/WEB-INF/matchInfoPlayer/matchInfo-imageShow.jsp</result>
+			
+			<result type="stream" name="ajax-success">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>							
+			</result>	
+		 </action>
+	</package>
+</struts>    

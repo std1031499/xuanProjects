@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<!-- Dao -->
+	<bean id="mainDao" class="com.xuan.bs.dao.MainDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="playerDao" class="com.xuan.bs.dao.PlayerDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="organizerDao" class="com.xuan.bs.dao.OrganizerDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="matchDao" class="com.xuan.bs.dao.MatchDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="playerPostionDao" class="com.xuan.bs.dao.PlayerPositionDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="matchInfoDao" class="com.xuan.bs.dao.MatchInfoDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="teamDao" class="com.xuan.bs.dao.TeamDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="imageDao" class="com.xuan.bs.dao.ImageDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="evaluateInfoDao" class="com.xuan.bs.dao.EvaluateInfoDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="playerMatchDao" class="com.xuan.bs.dao.PlayerMatchDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+	
+	
+	<!-- Service -->
+	<bean id="mainService" class="com.xuan.bs.service.MainService">
+		<property name="mainDao" ref="mainDao"></property>
+	</bean>
+	
+	<bean id="playerService" class="com.xuan.bs.service.PlayerService">
+		<property name="playerDao" ref="playerDao"></property>
+	</bean>
+	
+	<bean id="organizerService" class="com.xuan.bs.service.OrganizerService">
+		<property name="organizerDao" ref="organizerDao"></property>
+	</bean>
+	
+	<bean id="matchService" class="com.xuan.bs.service.MatchService">
+		<property name="matchDao" ref="matchDao"></property>
+	</bean>
+	
+	<bean id="playerPositionService" class="com.xuan.bs.service.PlayerPositionService">
+		<property name="playerPositionDao" ref="playerPostionDao"></property>
+	</bean>
+	
+	<bean id="matchInfoService" class="com.xuan.bs.service.MatchInfoService">
+		<property name="matchInfoDao" ref="matchInfoDao"></property>
+	</bean>
+	
+	<bean id="teamService" class="com.xuan.bs.service.TeamService">
+		<property name="teamDao" ref="teamDao"></property>
+	</bean>
+	
+	<bean id="imageService" class="com.xuan.bs.service.ImageService">
+		<property name="imageDao" ref="imageDao"></property>
+	</bean>
+	
+	<bean id="evaluateService" class="com.xuan.bs.service.EvaluateServcie">
+		<property name="evaluateInfoDao" ref="evaluateInfoDao"></property>
+	</bean>
+	
+	<bean id="playerMatchService" class="com.xuan.bs.service.PlayerMatchService">
+		<property name="playerMatchDao" ref="playerMatchDao"></property>
+	</bean>
+	
+	
+	
+	<!-- Action -->
+	<bean id="mainAction" class="com.xuan.bs.actions.MainAction">
+		<property name="mainService" ref="mainService"></property>
+	</bean>
+	
+	<bean id="playerAction" class="com.xuan.bs.actions.PlayerAction">
+		<property name="playerService" ref="playerService"></property>	
+		<property name="evaluateServcie" ref="evaluateService"></property>	
+		<property name="teamService" ref="teamService"></property>
+	</bean>
+	
+	<bean id="organizerAction" class="com.xuan.bs.actions.OrganizerAction">
+		<property name="organizerService" ref="organizerService"></property>
+	</bean>
+	
+	<bean id="matchAction" class="com.xuan.bs.actions.MatchAction">
+		<property name="matchService" ref="matchService"></property>
+		<property name="organizerService" ref="organizerService"></property>
+		<property name="playerMatchService" ref="playerMatchService"></property>
+		<property name="playerService" ref="playerService"></property>
+	</bean>
+	
+	<bean id="matchInfoAction" class="com.xuan.bs.actions.matchInfoAction">
+		<property name="matchInfoService" ref="matchInfoService"></property>
+		<property name="playerPositionService" ref="playerPositionService"></property>
+		<property name="teamService" ref="teamService"></property>
+		<property name="playerService" ref="playerService"></property>
+		<property name="evaluateServcie" ref="evaluateService"></property>
+		
+		<property name="imageService" ref="imageService"></property>
+	</bean>
+	
+</beans>
