@@ -1,0 +1,24 @@
+#MyEclipse Hibernate Properties
+#Tue Jun 05 00:17:44 CST 2018
+sessionFactoryName=
+genBasicCompId=false
+profile=
+daoSFId=
+version=4.1
+jndiPath=
+detectM2M=false
+reStrategyClass=
+detectO2O=false
+springDaoFile=
+useJavaTypes=true
+keyGenerator=native
+libInstallFolder=
+addLibs2Project=false
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+genAnnotations=false
+reSettingsFile=
+configFile=/basketballSystem/config/hibernate.cfg.xml
+createConfigFile=false
+addLibs2Classpath=false
